@@ -8,11 +8,8 @@ services:
       context: .
       dockerfile:  src/DrMW.Cqrs.Api/Dockerfile
     ports:
-      - "4000:4000"
-    networks: 
-      - sql-network
-    environment:
-      - ASPNETCORE_URLS=http://+:4000
+      - "80:80"
+      - "443:443"
     restart: unless-stopped
     healthcheck:
       test: ["CMD-SHELL", "curl -f http://localhost:4000/api/health || exit 1"]
@@ -21,8 +18,5 @@ services:
       retries: 3
       start_period: 20s
   
-networks:
-  sql-network:
-    external: true
    
     
