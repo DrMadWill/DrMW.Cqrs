@@ -9,6 +9,8 @@ services:
       dockerfile:  src/DrMW.Cqrs.Api/Dockerfile
     ports:
       - "4000:4000"
+    environment:
+      - ASPNETCORE_URLS=http://+:4000
     restart: unless-stopped
     healthcheck:
       test: ["CMD-SHELL", "curl -f http://localhost:4000/api/health || exit 1"]
