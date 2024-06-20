@@ -1,5 +1,7 @@
 using DrMW.Cqrs.Core.Commons;
+using DrMW.Cqrs.Service.Abstractions;
 using DrMW.Cqrs.Service.Abstractions.Edu;
+using DrMW.Cqrs.Service.Concretes;
 using DrMW.Cqrs.Service.Concretes.Edu;
 using DrMW.Cqrs.Service.Mappers;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,5 +23,6 @@ public static class ServiceRegistration
 
         services.AddScoped<IGroupService, GroupService>();
         services.AddScoped<ISubjectService, SubjectService>();
+        services.AddScoped<ISoapService, SoapService>();
     } 
 }
