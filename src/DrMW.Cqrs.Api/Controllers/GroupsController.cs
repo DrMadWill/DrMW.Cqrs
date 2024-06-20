@@ -6,42 +6,42 @@ namespace DrMW.Cqrs.Api.Controllers;
 
 public class GroupsController : BaseController
 {
-    private readonly IGroupService _subjectService;
-    public GroupsController(IGroupService subjectService)
+    private readonly IGroupService _groupService;
+    public GroupsController(IGroupService groupService)
     {
-        _subjectService = subjectService;
+        _groupService = groupService;
     }
     
     
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
-        return Ok(await _subjectService.GetAll());
+        return Ok(await _groupService.GetAll());
     }
     
     [HttpGet("{id:guid}")]
     public async Task<IActionResult> Get(Guid id)
     {
-        return Ok(await _subjectService.Get(id));
+        return Ok(await _groupService.Get(id));
     }
     
     [HttpPost]
     public async Task<IActionResult> Add(AddGroupReq request)
     {
-        return Ok(await _subjectService.AddAsync(request));
+        return Ok(await _groupService.AddAsync(request));
     } 
     
     [HttpPut]
     public async Task<IActionResult> Put([FromBody]UpdateGroupReq request)
     {
-        return Ok(await _subjectService.UpdateAsync(request));
+        return Ok(await _groupService.UpdateAsync(request));
     } 
     
     
     [HttpDelete]
     public async Task<IActionResult> Delete(Guid id)
     {
-        return Ok(await _subjectService.DeleteAsync(id));
+        return Ok(await _groupService.DeleteAsync(id));
     }
     
 }

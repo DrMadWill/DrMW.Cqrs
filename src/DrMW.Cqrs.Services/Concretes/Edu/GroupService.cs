@@ -11,17 +11,15 @@ namespace DrMW.Cqrs.Service.Concretes.Edu;
 
 public class GroupService : IGroupService
 {
-    private readonly ISelectRepositories _selectRepositories;
     private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
     private readonly IReadRepository<Group, Guid> _readRepository;
     private readonly IWriteRepository<Group, Guid> _writeRepository;
     public GroupService(ISelectRepositories selectRepositories,IUnitOfWork unitOfWork, IMapper mapper)
     {
-        _selectRepositories = selectRepositories;
         _unitOfWork = unitOfWork;
         _mapper = mapper;
-        _readRepository = _selectRepositories.Repository<Group, Guid>();
+        _readRepository = selectRepositories.Repository<Group, Guid>();
         _writeRepository = _unitOfWork.Repository<Group, Guid>();
     }
     

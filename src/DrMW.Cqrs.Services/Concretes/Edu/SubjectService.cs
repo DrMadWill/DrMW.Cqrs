@@ -3,7 +3,6 @@ using DrMW.Cqrs.Core.Edu;
 using DrMW.Cqrs.Models.Dtos.Edu;
 using DrMW.Cqrs.Models.Requests.Subjects;
 using DrMW.Cqrs.Repository.Abstractions.Cqrs;
-using DrMW.Cqrs.Repository.Abstractions.SystemRepos;
 using DrMW.Cqrs.Service.Abstractions.Edu;
 using Microsoft.EntityFrameworkCore;
 
